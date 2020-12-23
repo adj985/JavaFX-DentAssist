@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 17, 2020 11:30:23 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Interventions" table="interventions" catalog="dentassist" optimistic-lock="version">
+        <id name="idinterventions" type="java.lang.Integer">
+            <column name="idinterventions" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="diagnosis" class="model.Diagnosis" fetch="select">
+            <column name="iddiagnosis" not-null="true" />
+        </many-to-one>
+        <many-to-one name="patients" class="model.Patients" fetch="select">
+            <column name="idpatients" not-null="true" />
+        </many-to-one>
+        <property name="tooth" type="int">
+            <column name="tooth" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="65535" not-null="true" />
+        </property>
+        <property name="dateOfIntervention" type="string">
+            <column name="date_of_intervention" length="10" not-null="true" />
+        </property>
+        <property name="price" type="double">
+            <column name="price" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="charged" type="string">
+            <column name="charged" length="2" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

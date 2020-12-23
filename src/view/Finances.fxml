@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="820.0" prefWidth="1097.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FinancesController">
+   <children>
+      <Label layoutX="296.0" layoutY="14.0" prefHeight="96.0" prefWidth="505.0" text="Pregled finansija" textFill="#9951bf">
+         <font>
+            <Font name="Bernard MT Condensed" size="64.0" />
+         </font>
+      </Label>
+      <VBox layoutX="13.0" layoutY="429.0" prefHeight="387.0" prefWidth="655.0" spacing="20.0">
+         <children>
+            <Label text="Pregled dugovanja:" textFill="#9951bf">
+               <font>
+                  <Font name="Bernard MT Condensed" size="22.0" />
+               </font>
+            </Label>
+            <TableView fx:id="debtsTable" prefHeight="332.0" prefWidth="650.0">
+              <columns>
+                  <TableColumn fx:id="firstNameCol" prefWidth="99.0" text="Ime" />
+                  <TableColumn fx:id="lastNameCol" prefWidth="102.0" text="Prezime" />
+                  <TableColumn fx:id="residenceCol" prefWidth="100.0" text="Prebivalište" />
+                  <TableColumn fx:id="phoneNumberCol" prefWidth="121.0" text="Broj telefona" />
+                  <TableColumn fx:id="debtCol" prefWidth="88.0" text="Dug" />
+                  <TableColumn fx:id="debtDateCol" prefWidth="143.0" text="Datum dugovanja" />
+              </columns>
+            </TableView>
+         </children>
+         <padding>
+            <Insets left="5.0" />
+         </padding>
+      </VBox>
+      <VBox layoutX="679.0" layoutY="429.0" prefHeight="387.0" prefWidth="404.0" spacing="20.0">
+         <children>
+            <Label text="Pregled rashoda:" textFill="#9951bf">
+               <font>
+                  <Font name="Bernard MT Condensed" size="22.0" />
+               </font>
+            </Label>
+            <TableView fx:id="expensesTable" prefHeight="332.0" prefWidth="399.0">
+               <columns>
+                  <TableColumn fx:id="expenseDateCol" prefWidth="94.0" text="Datum rashoda" />
+                  <TableColumn fx:id="expenseAmountCol" prefWidth="87.0" text="Iznos" />
+                  <TableColumn fx:id="expensePurposeCol" prefWidth="222.0" text="Svrha rashoda" />
+               </columns>
+            </TableView>
+         </children>
+         <padding>
+            <Insets left="5.0" />
+         </padding>
+      </VBox>
+      <HBox layoutX="14.0" layoutY="195.0" prefHeight="196.0" prefWidth="1070.0" spacing="50.0">
+         <children>
+            <VBox layoutX="311.0" layoutY="10.0" prefHeight="196.0" prefWidth="349.0" spacing="20.0">
+               <children>
+                  <Label text="Izaberite period za prikaz podataka:" textFill="#9951bf">
+                     <font>
+                        <Font name="Bernard MT Condensed" size="18.0" />
+                     </font>
+                  </Label>
+                  <DatePicker fx:id="fromDate" editable="false" prefHeight="25.0" prefWidth="222.0" promptText="Od" />
+                  <DatePicker fx:id="toDate" editable="false" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="222.0" promptText="Do" />
+                  <HBox prefHeight="64.0" prefWidth="218.0" spacing="35.0">
+                     <children>
+                        <Button fx:id="loadDataButton" mnemonicParsing="false" onAction="#loadData" prefHeight="34.0" prefWidth="94.0" text="Prikaži" textFill="#9951bf">
+                           <font>
+                              <Font name="Bernard MT Condensed" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="clearDataButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#clearData" prefHeight="34.0" prefWidth="94.0" text="Poništi" textFill="#9951bf">
+                           <font>
+                              <Font name="Bernard MT Condensed" size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox prefHeight="196.0" prefWidth="348.0" spacing="20.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="350.0" text="Ukupno intervencija za dati period:" textFill="#9951bf">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="350.0" text="Ukupan prihod za dati period:" textFill="#9951bf">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="47.0" prefHeight="17.0" prefWidth="350.0" text="Ukupan rashod za dati period:" textFill="#9951bf">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="350.0" text="Ukupno dugovanja za dati period:" textFill="#9951bf">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox layoutX="10.0" layoutY="10.0" prefHeight="196.0" prefWidth="175.0" spacing="20.0">
+               <children>
+                  <Label fx:id="numberOfInterventionsLabel" prefHeight="17.0" prefWidth="300.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="incomeLabel" layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="300.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="expensesLabel" layoutX="10.0" layoutY="66.0" prefHeight="17.0" prefWidth="300.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="debtsLabel" prefHeight="17.0" prefWidth="300.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+      <Separator layoutY="375.0" prefHeight="32.0" prefWidth="1097.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="375.0" />
+   </children>
+</AnchorPane>

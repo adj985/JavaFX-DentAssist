@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 17, 2020 11:30:23 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Scheduling" table="scheduling" catalog="dentassist" optimistic-lock="version">
+        <id name="idscheduling" type="java.lang.Integer">
+            <column name="idscheduling" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="patients" class="model.Patients" fetch="select">
+            <column name="idpatients" not-null="true" />
+        </many-to-one>
+        <property name="scheduledDate" type="string">
+            <column name="scheduled_date" length="10" not-null="true" />
+        </property>
+        <property name="scheduledTime" type="string">
+            <column name="scheduled_time" length="5" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

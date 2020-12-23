@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="539.0" prefWidth="748.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ExpensesController">
+   <children>
+      <Label layoutX="10.0" layoutY="14.0" text="Rashod" textFill="#9951bf">
+         <font>
+            <Font name="Bernard MT Condensed" size="45.0" />
+         </font>
+      </Label>
+      <VBox layoutX="8.0" layoutY="85.0" prefHeight="454.0" prefWidth="276.0" spacing="10.0">
+         <children>
+            <TextField fx:id="expenseAmountField" prefHeight="30.0" promptText="Iznos" />
+            <DatePicker fx:id="datePicker" editable="false" prefHeight="30.0" prefWidth="137.0" promptText="Datum rashoda" />
+            <TextArea fx:id="expensePurposeArea" prefHeight="253.0" prefWidth="254.0" promptText="Svrha rashoda" />
+            <HBox alignment="CENTER" prefHeight="58.0" prefWidth="254.0" spacing="20.0">
+               <children>
+                  <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveExpense" prefHeight="34.0" prefWidth="80.0" text="Sačuvaj" textFill="#9951bf">
+                     <font>
+                        <Font name="Bernard MT Condensed" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="updateButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#updateExpense" prefHeight="30.0" prefWidth="80.0" text="Izmeni" textFill="#9951bf">
+                     <font>
+                        <Font name="Bernard MT Condensed" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="clearButton" layoutX="147.0" layoutY="22.0" mnemonicParsing="false" onAction="#clearFields" prefHeight="30.0" prefWidth="80.0" text="Poništi" textFill="#9951bf">
+                     <font>
+                        <Font name="Bernard MT Condensed" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox layoutX="296.0" layoutY="85.0" prefHeight="454.0" prefWidth="452.0">
+         <children>
+            <TableView fx:id="expenseTable" onMouseClicked="#loadData" prefHeight="390.0" prefWidth="402.0">
+              <columns>
+                <TableColumn fx:id="expenseDateCol" prefWidth="94.0" text="Datum rashoda" />
+                <TableColumn fx:id="expenseAmountCol" prefWidth="82.0" text="Iznos" />
+                  <TableColumn fx:id="expensePurposeCol" prefWidth="285.0" text="Svrha rashoda" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

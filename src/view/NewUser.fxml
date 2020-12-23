@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="242.0" prefWidth="335.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NewUserController">
+   <children>
+      <Button fx:id="newUserButton" layoutX="35.0" layoutY="186.0" mnemonicParsing="false" onAction="#createUser" prefWidth="120.0" text="Kreiraj korisnika">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <Button fx:id="clearButton" layoutX="184.0" layoutY="186.0" mnemonicParsing="false" onAction="#clear" prefWidth="120.0" text="Poništi">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <TextField fx:id="userNameField" layoutX="35.0" layoutY="29.0" prefHeight="30.0" prefWidth="269.0" promptText="Korisničko ime">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <PasswordField fx:id="passwordField" layoutX="35.0" layoutY="77.0" prefHeight="30.0" prefWidth="269.0" promptText="Unesite lozinku">
+         <font>
+            <Font size="14.0" />
+         </font></PasswordField>
+      <PasswordField fx:id="repeatPasswordField" layoutX="35.0" layoutY="124.0" prefHeight="30.0" prefWidth="269.0" promptText="Potvrdite lozinku">
+         <font>
+            <Font size="14.0" />
+         </font></PasswordField>
+   </children>
+</AnchorPane>

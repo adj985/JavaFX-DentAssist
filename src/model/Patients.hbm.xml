@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 17, 2020 11:30:23 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Patients" table="patients" catalog="dentassist" optimistic-lock="version">
+        <id name="idpatients" type="java.lang.Integer">
+            <column name="idpatients" />
+            <generator class="identity" />
+        </id>
+        <property name="firstName" type="string">
+            <column name="first_name" length="45" not-null="true" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="last_name" length="45" not-null="true" />
+        </property>
+        <property name="icNumber" type="string">
+            <column name="ic_number" length="13" not-null="true" />
+        </property>
+        <property name="address" type="string">
+            <column name="address" length="45" not-null="true" />
+        </property>
+        <property name="residence" type="string">
+            <column name="residence" length="45" not-null="true" />
+        </property>
+        <property name="phoneNumber" type="string">
+            <column name="phone_number" length="45" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="45" />
+        </property>
+        <property name="warningNote" type="string">
+            <column name="warning_note" length="1000" />
+        </property>
+        <set name="schedulings" table="scheduling" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idpatients" not-null="true" />
+            </key>
+            <one-to-many class="model.Scheduling" />
+        </set>
+        <set name="interventionses" table="interventions" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idpatients" not-null="true" />
+            </key>
+            <one-to-many class="model.Interventions" />
+        </set>
+    </class>
+</hibernate-mapping>

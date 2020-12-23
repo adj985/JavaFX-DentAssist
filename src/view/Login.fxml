@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="253.0" prefWidth="363.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+   <children>
+      <Label fx:id="statusLabel" layoutX="29.0" layoutY="8.0" prefHeight="36.0" prefWidth="306.0" textFill="#bf3232" wrapText="true">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Button fx:id="loginButton" defaultButton="true" layoutX="51.0" layoutY="181.0" mnemonicParsing="false" onAction="#login" prefWidth="80.0" text="Uloguj se">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="clearButton" layoutX="230.0" layoutY="181.0" mnemonicParsing="false" onAction="#clear" prefWidth="80.0" text="Resetuj">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <TextField fx:id="userNameField" layoutX="29.0" layoutY="50.0" prefHeight="25.0" prefWidth="306.0" promptText="Korisničko ime">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="passwordField" layoutX="29.0" layoutY="95.0" prefHeight="25.0" prefWidth="306.0" promptText="Lozinka">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </PasswordField>
+      <Hyperlink fx:id="newUserLink" layoutX="29.0" layoutY="129.0" onAction="#openNewUserForm" text="Novi korisnik" textFill="#408deb" underline="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink fx:id="changePasswordLink" layoutX="250.0" layoutY="129.0" onAction="#openChangePasswordForm" text="Promeni šifru" textFill="#408deb" underline="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Hyperlink>
+   </children>
+</AnchorPane>

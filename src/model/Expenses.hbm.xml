@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 17, 2020 11:30:23 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Expenses" table="expenses" catalog="dentassist" optimistic-lock="version">
+        <id name="idexpenses" type="java.lang.Integer">
+            <column name="idexpenses" />
+            <generator class="identity" />
+        </id>
+        <property name="expensePurpose" type="string">
+            <column name="expense_purpose" length="128" not-null="true" />
+        </property>
+        <property name="amountSpent" type="double">
+            <column name="amount_spent" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="expenseDate" type="string">
+            <column name="expense_date" length="10" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 17, 2020 11:30:23 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Diagnosis" table="diagnosis" catalog="dentassist" optimistic-lock="version">
+        <id name="iddiagnosis" type="java.lang.Integer">
+            <column name="iddiagnosis" />
+            <generator class="identity" />
+        </id>
+        <property name="diagnosisName" type="string">
+            <column name="diagnosis_name" length="45" />
+        </property>
+        <set name="interventionses" table="interventions" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="iddiagnosis" not-null="true" />
+            </key>
+            <one-to-many class="model.Interventions" />
+        </set>
+    </class>
+</hibernate-mapping>

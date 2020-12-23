@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="759.0" prefWidth="1516.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PatientsController">
+   <children>
+      <Label layoutX="18.0" layoutY="13.0" prefHeight="49.0" prefWidth="207.0" text="Pacijenti" textFill="#9951bf">
+         <font>
+            <Font name="Bernard MT Condensed" size="36.0" />
+         </font>
+      </Label>
+      <VBox layoutX="7.0" layoutY="75.0" prefHeight="683.0" prefWidth="401.0" spacing="10.0">
+         <children>
+            <TextField fx:id="firstNameField" prefHeight="40.0" promptText="Ime">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="lastNamefield" layoutX="10.0" layoutY="10.0" prefHeight="40.0" promptText="Prezime">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="icNumberField" layoutX="20.0" layoutY="60.0" prefHeight="40.0" promptText="Matični broj građana">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="addressField" layoutX="10.0" layoutY="35.0" prefHeight="40.0" promptText="Ulica i broj">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="residenceField" layoutX="10.0" layoutY="60.0" prefHeight="40.0" promptText="Prebivalište">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="phoneNumberField" layoutX="10.0" layoutY="85.0" prefHeight="40.0" promptText="Broj telefona">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="emailField" layoutX="10.0" layoutY="110.0" prefHeight="40.0" promptText="Email adresa">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <TextArea fx:id="warningNoteArea" onKeyTyped="#characterCount" prefHeight="249.0" prefWidth="381.0" promptText="Napomena" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextArea>
+            <HBox prefHeight="22.0" prefWidth="381.0">
+               <children>
+                  <Label text="Iskorišćeno karaktera:" textFill="#9951bf" />
+                  <Label fx:id="charLabel" alignment="CENTER" prefHeight="17.0" prefWidth="49.0" textFill="#9951bf" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="74.0" prefWidth="381.0" spacing="20.0">
+               <children>
+                  <Button fx:id="createPatientButton" mnemonicParsing="false" onAction="#createPatient" prefWidth="112.0" text="Kreiraj" textFill="#9951bf">
+                     <font>
+                        <Font name="Bernard MT Condensed" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="clearButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#clearData" prefWidth="112.0" text="Poništi" textFill="#9951bf">
+                     <font>
+                        <Font name="Bernard MT Condensed" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="updateButton" layoutX="211.0" layoutY="33.0" mnemonicParsing="false" onAction="#updatePatients" prefWidth="112.0" text="Izmeni" textFill="#9951bf">
+                     <font>
+                        <Font name="Bernard MT Condensed" size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+      <TableView fx:id="patientsTable" layoutX="427.0" layoutY="84.0" onMouseClicked="#fillBoxes" prefHeight="675.0" prefWidth="1090.0">
+        <columns>
+          <TableColumn fx:id="firstNameCol" prefWidth="118.0" sortType="DESCENDING" text="Ime" />
+          <TableColumn fx:id="lastNameCol" prefWidth="133.0" text="Prezime" />
+            <TableColumn fx:id="icNumberCol" prefWidth="133.0" sortable="false" text="Matični broj" />
+            <TableColumn fx:id="addressCol" prefWidth="93.0" sortable="false" text="Ulica i broj" />
+            <TableColumn fx:id="residenceCol" prefWidth="101.0" sortable="false" text="Prebivalište" />
+            <TableColumn fx:id="phoneNumberCol" prefWidth="118.0" sortable="false" text="Broj telefona" />
+            <TableColumn fx:id="emailCol" prefWidth="97.0" sortable="false" text="Email" />
+            <TableColumn fx:id="warningNoteCol" prefWidth="294.0" sortable="false" text="napomena" />
+        </columns>
+      </TableView>
+      <TextField fx:id="searchField" layoutX="427.0" layoutY="50.0" onKeyTyped="#search" prefHeight="25.0" prefWidth="251.0" promptText="Pretraži pacijente">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+   </children>
+</AnchorPane>
