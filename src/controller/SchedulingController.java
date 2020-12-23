@@ -81,8 +81,8 @@ public class SchedulingController implements Initializable {
         minutesSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 45, 0, 15));
 
         try {
-            patientsList = Patients.loadPatients();
-            selectPatientCombo.getItems().addAll(patientsList);
+            patientsList = Patients.loadPatients();//Loading patients into a list.
+            selectPatientCombo.getItems().addAll(patientsList);//Adding the list of patients into a combo box.
         } catch (Exception e) {
             e.getMessage();
         }
@@ -112,7 +112,7 @@ public class SchedulingController implements Initializable {
                 return;
             }
 
-            //Checking if the desired time of an appointment is not taken already.
+            //Checking if the desired time of an appointment is not taken already. If it is taken then "isFree" variable is set to false.
             for (int i = 0; i < scheduleList.size(); i++) {
                 if (scheduleList.get(i).getScheduledDate().equals(date.format(formatter)) && scheduleList.get(i).getScheduledTime().equals(hoursSpinner.getValue() + ":" + minutesSpinner.getValue())) {
                     isFree = false;
@@ -120,19 +120,20 @@ public class SchedulingController implements Initializable {
                 }
             }
             
+            //If isFree is false, then the alert pops out with a message.
             if (isFree == false) {
                 Alert a = new Alert(Alert.AlertType.WARNING);
                 a.setContentText("Termin je zauzet!\nIzaberite drugi termin.");
                 a.setHeaderText(null);
                 a.show();
-            } else if (date.isBefore(LocalDate.now())) {
+            } else if (date.isBefore(LocalDate.now())) {//Checking if the date is not in the past. If it is, an alert pops out with a message about it.
 
                 Alert a = new Alert(Alert.AlertType.WARNING);
                 a.setContentText("Traženi datum je već prošao!\nIzaberite drugi datum");
                 a.setHeaderText(null);
                 a.show();
 
-            } else {
+            } else {//If everithing is ok an appointment is created in the database
                 p = Patients.findPatient(selectPatientCombo.getSelectionModel().getSelectedItem().getIdpatients());
 
                 Scheduling.schedule(new Scheduling(date.format(formatter), hoursSpinner.getValue() + ":" + minutesSpinner.getValue(), p));
@@ -143,7 +144,7 @@ public class SchedulingController implements Initializable {
                 a.show();
             }
 
-        } catch (NullPointerException e) {
+        } catch (NullPointerException e) {//Catching an exception, if the date isn't picked.
             Alert a = new Alert(Alert.AlertType.WARNING);
             a.setContentText("Izaberite datum!");
             a.setHeaderText(null);
@@ -188,6 +189,11 @@ public class SchedulingController implements Initializable {
 
     }
 
+    /**
+     * Opening Patients window
+     * 
+     * @param event 
+     */
     @FXML
     private void openPatients(ActionEvent event) {
         try {
@@ -218,8 +224,6 @@ public class SchedulingController implements Initializable {
                 } catch (Exception e) {
                     e.getMessage();
                 }
-
-//                primaryStage.close();
             });
 
         } catch (IOException ex) {
