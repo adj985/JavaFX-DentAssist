@@ -196,7 +196,7 @@ public class InterventionsController implements Initializable {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
             String charged;
 
-            //Storing String value in a "charged" variable (later used in the database)
+            //Storing a String value into "charged" variable (later used in the database)
             if (chargedCheckBox.isSelected()) {
                 charged = "DA";
             } else {
