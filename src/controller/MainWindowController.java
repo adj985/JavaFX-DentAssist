@@ -10,7 +10,6 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalTime;
-import java.util.Arrays;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -98,7 +97,7 @@ public class MainWindowController implements Initializable {
 
         //Creating folder for patients docs
 
-            File file = new File("C:/Kartoteka");
+            File file = new File("C:\\Kartoteka");
             if (!file.exists()) {
                 file.mkdir();
             }
