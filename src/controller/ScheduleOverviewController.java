@@ -101,7 +101,7 @@ public class ScheduleOverviewController implements Initializable {
      */
     @FXML
     private void fillLabels(MouseEvent event) {
-        if (scheduleTable.getSelectionModel().getSelectedItem() != null) {
+        if (!scheduleTable.getSelectionModel().isEmpty()) {
             firstNameLabel.setText(scheduleTable.getSelectionModel().getSelectedItem().getFirstName());
             lastNameLabel.setText(scheduleTable.getSelectionModel().getSelectedItem().getLastName());
             residenceLabel.setText(scheduleTable.getSelectionModel().getSelectedItem().getResidence());

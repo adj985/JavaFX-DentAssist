@@ -165,16 +165,12 @@ public class ExpensesController implements Initializable {
         Alert a = new Alert(Alert.AlertType.WARNING);
         a.setHeaderText(null);
 
-        if (expenseTable.getSelectionModel().isEmpty()) {
-            a.setContentText("Izaberite u tabeli stavku koju biste da izmenite!");
-            a.show();
-        } else {
+        if (!expenseTable.getSelectionModel().isEmpty()) {
             expenseAmountField.setText(String.valueOf(expenseTable.getSelectionModel().getSelectedItem().getAmountSpent()));
             datePicker.setValue(LocalDate.parse(expenseTable.getSelectionModel().getSelectedItem().getExpenseDate(), DateTimeFormatter.ofPattern("dd.MM.yyyy")));
             expensePurposeArea.setText(expenseTable.getSelectionModel().getSelectedItem().getExpensePurpose());
             saveButton.setDisable(true);
             updateButton.setDisable(false);
-        }
+        } 
     }
-
 }

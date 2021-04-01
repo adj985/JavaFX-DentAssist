@@ -180,7 +180,7 @@ public class PatientsController implements Initializable {
             patientsTable.setItems(patientList = Patients.loadPatients());
 
             //Creating document for new patient
-            String filePath = "D:\\Kartoteka\\" + firstNameField.getText().trim() + " " + lastNamefield.getText().trim() + ", " + residenceField.getText().trim() + " -jmbg " + icNumberField.getText().trim() + ".txt";
+            String filePath = "C:\\Kartoteka\\" + firstNameField.getText().trim() + " " + lastNamefield.getText().trim() + ", " + residenceField.getText().trim() + " -jmbg " + icNumberField.getText().trim() + ".txt";
 
             String textToAppend = firstNameField.getText().toUpperCase().trim() + " " + lastNamefield.getText().toUpperCase().trim() + "\nJMBG: " + icNumberField.getText().trim() + "\n\nNapomena: "
                     + warningNoteArea.getText().trim() + "\n\nPrebivalište: " + residenceField.getText().trim() + "\nAdresa: " + addressField.getText().trim() + "\n\n\nIntervencije:\n";
@@ -194,7 +194,7 @@ public class PatientsController implements Initializable {
 
             } catch (IOException e) {
                 a.setAlertType(Alert.AlertType.ERROR);
-                a.setHeaderText("Došlo je do greške!");
+                a.setHeaderText("Došlo je do greške prilikom kreiranje fajla!");
                 a.setContentText("Pokušajte ponovo ili se pozovite podršku.");
                 a.show();
             }
@@ -307,19 +307,22 @@ public class PatientsController implements Initializable {
      */
     @FXML
     private void fillBoxes(MouseEvent event) {
-        firstNameField.setText(patientsTable.getSelectionModel().getSelectedItem().getFirstName());
-        lastNamefield.setText(patientsTable.getSelectionModel().getSelectedItem().getLastName());
-        icNumberField.setText(patientsTable.getSelectionModel().getSelectedItem().getIcNumber());
-        addressField.setText(patientsTable.getSelectionModel().getSelectedItem().getAddress());
-        residenceField.setText(patientsTable.getSelectionModel().getSelectedItem().getResidence());
-        phoneNumberField.setText(patientsTable.getSelectionModel().getSelectedItem().getPhoneNumber());
-        emailField.setText(patientsTable.getSelectionModel().getSelectedItem().getEmail());
-        warningNoteArea.setText(patientsTable.getSelectionModel().getSelectedItem().getWarningNote());
-
-        if (updateButton.isDisabled()) {
-            updateButton.setDisable(false);
-            createPatientButton.setDisable(true);
+        if (!patientsTable.getSelectionModel().isEmpty()) {
+            firstNameField.setText(patientsTable.getSelectionModel().getSelectedItem().getFirstName());
+            lastNamefield.setText(patientsTable.getSelectionModel().getSelectedItem().getLastName());
+            icNumberField.setText(patientsTable.getSelectionModel().getSelectedItem().getIcNumber());
+            addressField.setText(patientsTable.getSelectionModel().getSelectedItem().getAddress());
+            residenceField.setText(patientsTable.getSelectionModel().getSelectedItem().getResidence());
+            phoneNumberField.setText(patientsTable.getSelectionModel().getSelectedItem().getPhoneNumber());
+            emailField.setText(patientsTable.getSelectionModel().getSelectedItem().getEmail());
+            warningNoteArea.setText(patientsTable.getSelectionModel().getSelectedItem().getWarningNote());
+            
+            if (updateButton.isDisabled()) {
+                updateButton.setDisable(false);
+                createPatientButton.setDisable(true);
+            }
         }
+        
 
     }
 

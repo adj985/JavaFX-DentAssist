@@ -98,7 +98,7 @@ public class MainWindowController implements Initializable {
 
         //Creating folder for patients docs
 
-            File file = new File("D:\\Kartoteka");
+            File file = new File("C:/Kartoteka");
             if (!file.exists()) {
                 file.mkdir();
             }
